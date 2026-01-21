@@ -184,3 +184,29 @@ if (toast && toastCloseBtn) {
     });
   }
 }
+// Disable Right Click
+document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+function ctrlShiftKey(e, keyCode) {
+  return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+}
+
+document.onkeydown = (e) => {
+  // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+  if (
+    event.keyCode === 123 ||
+    ctrlShiftKey(e, 'I') ||
+    ctrlShiftKey(e, 'J') ||
+    ctrlShiftKey(e, 'C') ||
+    (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+  )
+    return false;
+};
+
+// Console Branding
+console.clear();
+console.log(
+  '%c This site is managed by Anindya Hazra',
+  'color: #ffdb70; font-size: 20px; font-weight: bold; background: #2b2b2c; padding: 10px; border-radius: 5px;'
+);
+
