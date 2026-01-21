@@ -612,6 +612,214 @@ main {
   text-align: center;
 }
 
+/*-----------------------------------*\
+    #PROJECT DETAIL MODAL
+  \*-----------------------------------*/
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  z-index: 20;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal-container.active {
+  pointer-events: all;
+  visibility: visible;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: hsl(0, 0%, 5%);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.modal-container.active .modal-overlay {
+  opacity: 0.8;
+  visibility: visible;
+}
+
+.modal-content {
+  background: var(--eerie-black-2);
+  position: relative;
+  z-index: 2;
+  width: 700px;
+  max-width: 90%;
+  margin: 20px;
+  padding: 30px;
+  border: 1px solid var(--jet);
+  border-radius: 20px;
+  box-shadow: var(--shadow-5);
+  transform: scale(0.8);
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+}
+
+.modal-container.active .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--onyx);
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-2);
+  font-size: 18px;
+  opacity: 0.7;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-1);
+}
+
+.modal-close-btn:hover {
+  background: var(--jet);
+  opacity: 1;
+}
+
+.modal-img-wrapper {
+  display: block;
+  width: 100%;
+  height: 250px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: var(--jet);
+}
+
+.modal-avatar-box {
+  width: 100%;
+  height: 100%;
+}
+
+.modal-avatar-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.modal-img-wrapper>img {
+  display: none;
+}
+
+.modal-content-details {
+  text-align: center;
+}
+
+.modal-title {
+  margin-bottom: 4px;
+  color: var(--white-2);
+}
+
+.modal-category {
+  color: var(--light-gray-70);
+  font-size: var(--fs-6);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.modal-text {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.modal-item-title {
+  color: var(--white-1);
+  font-size: var(--fs-5);
+  margin-bottom: 10px;
+  margin-top: 20px;
+  text-align: left;
+  padding-left: 10px;
+  border-left: 3px solid var(--orange-yellow-crayola);
+}
+
+.modal-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.modal-tech-item {
+  background: var(--jet);
+  color: var(--orange-yellow-crayola);
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  box-shadow: var(--shadow-1);
+}
+
+.modal-features-list {
+  text-align: left;
+  margin-bottom: 25px;
+  padding-left: 20px;
+  list-style: disc inside;
+}
+
+.modal-features-item {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  margin-bottom: 5px;
+}
+
+.modal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--border-gradient-onyx);
+  color: var(--orange-yellow-crayola);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  transition: var(--transition-1);
+  box-shadow: var(--shadow-1);
+}
+
+.modal-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.modal-btn ion-icon {
+  font-size: 18px;
+}
+
+/* Make Project Images Clickable */
+.project-img {
+  cursor: pointer;
+}
+
 .service-item-title {
   margin-bottom: 7px;
 }
@@ -1158,7 +1366,7 @@ main {
   transition: var(--transition-1);
 }
 
-.project-item>a:hover .project-img::before {
+.project-img:hover::before {
   background: hsla(0, 0%, 0%, 0.5);
 }
 
@@ -1179,7 +1387,7 @@ main {
   transition: var(--transition-1);
 }
 
-.project-item>a:hover .project-item-icon-box {
+.project-img:hover .project-item-icon-box {
   --scale: 1;
   opacity: 1;
 }
@@ -1195,7 +1403,7 @@ main {
   transition: var(--transition-1);
 }
 
-.project-item>a:hover img {
+.project-img:hover img {
   transform: scale(1.1);
 }
 

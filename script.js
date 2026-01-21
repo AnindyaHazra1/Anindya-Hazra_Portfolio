@@ -210,3 +210,98 @@ console.log(
   'color: #ffdb70; font-size: 20px; font-weight: bold; background: #2b2b2c; padding: 10px; border-radius: 5px;'
 );
 
+
+// Modal Variables
+const modalContainer = document.querySelector('[data-modal]');
+const modalCloseBtn = document.querySelector('[data-modal-close-btn]');
+const modalOverlay = document.querySelector('[data-modal-overlay]');
+
+// Modal Content Variables
+const modalTitle = document.querySelector('[data-modal-title]');
+const modalText = document.querySelector('[data-modal-text]');
+const modalCategory = document.querySelector('[data-modal-category]');
+const modalImg = document.querySelector('[data-modal-img]');
+const modalLink = document.querySelector('[data-modal-link]');
+
+// Modal Toggle Function
+const modalToggle = function () {
+  modalContainer.classList.toggle('active');
+  modalOverlay.classList.toggle('active');
+}
+
+// Close Modal Event
+if (modalCloseBtn) {
+  modalCloseBtn.addEventListener('click', modalToggle);
+}
+if (modalOverlay) {
+  modalOverlay.addEventListener('click', modalToggle);
+}
+
+// Open Modal Function (Global to access from HTML onclick)
+// Open Modal Function
+const openModal = function (elem) {
+  // Get data from clicked element
+  const title = elem.dataset.title;
+  const category = elem.dataset.category;
+  const description = elem.dataset.description;
+  const url = elem.dataset.url;
+  const techStack = elem.dataset.techStack;
+  const features = elem.dataset.features;
+
+  // Populate Modal Basic Info
+  if (modalTitle) modalTitle.innerHTML = title;
+  if (modalCategory) modalCategory.innerHTML = category;
+  if (modalText) modalText.innerHTML = description;
+  if (modalLink) modalLink.href = url;
+
+  // Populate Tech Stack
+  const modalTechList = document.querySelector('[data-modal-tech-list]');
+  if (modalTechList) {
+    modalTechList.innerHTML = ''; // Clear previous
+    if (techStack) {
+      const techs = techStack.split(',').map(t => t.trim());
+      techs.forEach(tech => {
+        const li = document.createElement('li');
+        li.classList.add('modal-tech-item');
+        li.innerText = tech;
+        modalTechList.appendChild(li);
+      });
+      modalTechList.parentElement.style.display = 'block';
+    } else {
+      modalTechList.parentElement.style.display = 'none';
+    }
+  }
+
+  // Populate Features
+  const modalFeaturesList = document.querySelector('[data-modal-features-list]');
+  if (modalFeaturesList) {
+    modalFeaturesList.innerHTML = ''; // Clear previous
+    if (features) {
+      const feats = features.split('|').map(f => f.trim());
+      feats.forEach(feat => {
+        const li = document.createElement('li');
+        li.classList.add('modal-features-item');
+        li.innerText = feat;
+        modalFeaturesList.appendChild(li);
+      });
+      modalFeaturesList.parentElement.style.display = 'block';
+    } else {
+      modalFeaturesList.parentElement.style.display = 'none';
+    }
+  }
+
+
+
+  // Show Modal
+  modalToggle();
+}
+
+// Add Click Event to Project Images
+const projectImages = document.querySelectorAll('.project-img');
+
+for (let i = 0; i < projectImages.length; i++) {
+  projectImages[i].addEventListener("click", function () {
+    openModal(this);
+  });
+}
+
