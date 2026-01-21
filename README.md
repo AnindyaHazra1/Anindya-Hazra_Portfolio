@@ -35,7 +35,7 @@ Here are some of the key projects highlighted in this portfolio:
 *   **[Event Management App](https://event-management-app-swart.vercel.app/)**: A comprehensive web application for managing events.
 *   **[Aether](https://aether-red.vercel.app/)**: A modern, feature-rich weather application.
 *   **[Resumify](https://ats-resume-builder-psi.vercel.app/)**: An ATS-friendly resume builder.
-*   **[Aqua-Vita](https://aqua-vita-chi.vercel.app/)**: A health application focused on wellness.
+*   **[Aqua-Vita](https://aqua-vita-chi.vercel.app/)**: An E-Commerce Water Delivery Platform.
 *   **[Spider-Man Game](https://spidermangameani.netlify.app/)**: A fun, interactive web-based game.
 *   **[Periodic Puzzle](https://periodicpuzzle.netlify.app/)**: An educational game based on the periodic table.
 
