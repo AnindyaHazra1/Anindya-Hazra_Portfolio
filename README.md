@@ -7,12 +7,12 @@ Welcome to my personal portfolio repository! This project showcases my journey a
 I am a **BCA undergraduate** and **MERN Stack Developer** with a passion for building robust and aesthetic web applications. I have hands-on experience in the full software development lifecycle, from designing responsive frontends to architecting scalable backends.
 
 *   **Location:** Asansol, West Bengal, India
-*   **Education:** Bachelor of Computer Application (B.C.A) at Dr. B.C. Roy Academy of Professional Courses (2023 — 2027)
+*   **Education:** Bachelor of Computer Application (B.C.A) at Dr. B.C. Roy Academy of Professional Courses (2023 — 2026)
 
 ## 🚀 Tech Stack
 
 ### Frontend Development
-*   React.js, Next.js
+*   React.js
 *   JavaScript (ES6+)
 *   HTML5, CSS3, Tailwind CSS
 
